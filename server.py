@@ -10,6 +10,8 @@ class IndexHandler(tornado.web.RequestHandler):
 
 current_path = os.path.join(os.path.dirname(__file__))
 url = [
+(r'^/statics/(.*?)$', StaticFileHandler, {"path": os.path.join(current_path, "statics")}),
+(r'^/(.*?)$', StaticFileHandler, {"path": os.path.join(current_path, "templates")}),
 (r'/index', IndexHandler),
 ]
 
