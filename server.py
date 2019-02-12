@@ -1,0 +1,25 @@
+import tornado
+import json
+import os
+from tornado.web import StaticFileHandler
+
+class IndexHandler(tornado.web.RequestHandler):
+    def get(self):
+        pass
+
+
+current_path = os.path.join(os.path.dirname(__file__))
+url = [
+(r'/index', IndexHandler),
+]
+
+application = tornado.web.Application(handlers=url)
+
+def main():
+    http_server = tornado.httpserver.HTTPServer(application)
+    http_server.listen(9438)
+    print("Development server is running at http://127.0.0.1:9438")
+    tornado.ioloop.IOLoop.instance().start()
+
+if __name__=="__main__":
+    main()
