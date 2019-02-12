@@ -5,7 +5,7 @@ from tornado.web import StaticFileHandler
 
 class IndexHandler(tornado.web.RequestHandler):
     def get(self):
-        pass
+        self.finish('asdfas')
 
 
 current_path = os.path.join(os.path.dirname(__file__))
